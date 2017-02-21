@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/jaholtz/LLStaging-master/installation/catkin_ws/install/setup.sh

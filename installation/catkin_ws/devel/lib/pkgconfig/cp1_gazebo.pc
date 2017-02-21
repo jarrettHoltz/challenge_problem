@@ -1,0 +1,8 @@
+prefix=/home/jaholtz/LLStaging-master/installation/catkin_ws/devel
+
+Name: cp1_gazebo
+Description: Description of cp1_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/jaholtz/LLStaging-master/installation/catkin_ws/devel/lib 
+Requires: 

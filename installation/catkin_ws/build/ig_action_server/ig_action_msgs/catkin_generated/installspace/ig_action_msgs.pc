@@ -1,0 +1,8 @@
+prefix=/home/jaholtz/LLStaging-master/installation/catkin_ws/install
+
+Name: ig_action_msgs
+Description: Description of ig_action_msgs
+Version: 0.0.0
+Cflags: -I/home/jaholtz/LLStaging-master/installation/catkin_ws/install/include
+Libs: -L/home/jaholtz/LLStaging-master/installation/catkin_ws/install/lib 
+Requires: actionlib_msgs

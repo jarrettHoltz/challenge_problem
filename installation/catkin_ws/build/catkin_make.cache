@@ -1,0 +1,2 @@
+brass_logger:euler_orientation_convertor/euler_orientation:euler_orientation_convertor/messages:ig_action_server/ig_action_client:ig_action_server/ig_action_msgs:ig_action_server/ig_action_server
+-DCATKIN_DEVEL_PREFIX=/home/jaholtz/LLStaging-master/installation/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jaholtz/LLStaging-master/installation/catkin_ws/install -G Unix Makefiles

@@ -1,0 +1,8 @@
+prefix=/home/jaholtz/LLStaging-master/installation/catkin_ws/install
+
+Name: brass_logger
+Description: Description of brass_logger
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/jaholtz/LLStaging-master/installation/catkin_ws/install/lib 
+Requires: ig_action_msgs rospy std_msgs

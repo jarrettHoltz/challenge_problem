@@ -1,0 +1,8 @@
+prefix=/home/jaholtz/LLStaging-master/installation/catkin_ws/devel
+
+Name: ig_action_client
+Description: Description of ig_action_client
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/jaholtz/LLStaging-master/installation/catkin_ws/devel/lib 
+Requires: 

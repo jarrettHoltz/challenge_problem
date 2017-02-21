@@ -1,0 +1,8 @@
+prefix=/home/jaholtz/LLStaging-master/installation/catkin_ws/devel
+
+Name: euler_orientation
+Description: Description of euler_orientation
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/jaholtz/LLStaging-master/installation/catkin_ws/devel/lib 
+Requires: 
