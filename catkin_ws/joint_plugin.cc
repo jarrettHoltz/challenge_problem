@@ -20,6 +20,9 @@ namespace gazebo
     /// \param[in] _sdf A pointer to the plugin's SDF element.
     public: virtual void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
     {
+      std::cout << "Plugin Connected" << std::endl;
+      std::cout << _model->GetWorld()->GetName() << std::endl;
+      std::cout << _model->GetName() << std::endl;
         this->z_joint = _model->GetJoint("camera_rgb_joint");
         this->y_joint = _model->GetJoint("kinect_y_joint");
         this->x_joint = _model->GetJoint("kinect_x_joint");
@@ -28,7 +31,6 @@ namespace gazebo
 //         this->zr_joint = _model->GetJoint("kinect_zr_joint");
         this->link = _model->GetLink("camera_rgb_frame");
         
-
         // Create the node
         this->node = transport::NodePtr(new transport::Node());
         std::cout << _model->GetWorld()->GetName() << std::endl;
@@ -54,18 +56,20 @@ namespace gazebo
                           const double &_angle2,
                           const double &_angle3) {
       // Set the joint's target velocity.
-      this->xr_joint->SetPosition(0,_angle);
-      this->yr_joint->SetPosition(0,_angle2);
+      
+      this->xr_joint->SetAngle(0,_angle);
+      this->yr_joint->SetAngle(0,_angle2);
 //       this->zr_joint->SetPosition(0,_angle3);
     }
     
     public: void SetJointRot(const double &_angle, 
                           const double &_angle2,
                           const double &_angle3) {
+      std::cout << "set_joint_rot" << std::endl;
       // Set the joint's target velocity.
-      this->x_joint->SetPosition(0,_angle);
-      this->y_joint->SetPosition(0,_angle2);
-      this->z_joint->SetPosition(0,_angle3);
+      this->x_joint->SetAngle(0,_angle);
+      this->y_joint->SetAngle(0,_angle2);
+      this->z_joint->SetAngle(0,_angle3);
     }
     
     /// \brief Handle incoming message

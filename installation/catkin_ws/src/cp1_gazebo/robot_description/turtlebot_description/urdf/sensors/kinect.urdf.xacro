@@ -11,9 +11,10 @@
    <joint name="kinect_y_joint" type="continuous">
       <parent link="${parent}"/>
       <child link="kinect_y_joint_link"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="-0.087 -0.0125 0.2870" rpy="${cam_or} ${cam_op} ${cam_oy}"/>
+      
       <axis xyz="0 1 0"/>
-      <dynamics friction="100.0"/>
+      <dynamics damping="10" friction="1000000.0"/>
     </joint>
     <link name="kinect_y_joint_link">
       <collision>
@@ -38,8 +39,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <axis xyz="1 0 0"/>
       <limit effort="0" velocity="0.0"/>
-      <dynamics damping="100.0" friction="100000.0"/>
-      <dampingFactor>0.1</dampingFactor>
+      <dynamics damping="100" friction="1000000.0"/>
     </joint>
 
 
@@ -65,9 +65,8 @@
       <child link="kinect_xr_joint_link"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <axis xyz="1 0 0"/>
-      <limit effort="0" velocity="0.0" lower="-3" upper="3" />
-      <dynamics damping="100.0" friction="100000.0"/>
-      <dampingFactor>0.1</dampingFactor>
+      <limit effort="0.01" velocity="0.01" lower="-3" upper="3" />
+      <dynamics damping="100" friction="1000000.0"/>
     </joint>
     <link name="kinect_xr_joint_link">
       <collision>
@@ -79,9 +78,9 @@
       <inertial>
         <mass value="0.0001" />
         <origin xyz="0 0 0" />
-        <inertia ixx=".1" ixy="0.0" ixz="0.0"
-                 iyy=".1" iyz="0.0"
-                 izz=".1" />
+        <inertia ixx=".01" ixy="0.0" ixz="0.0"
+                 iyy=".01" iyz="0.0"
+                 izz=".01" />
       </inertial>
     </link>
 
@@ -92,8 +91,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <axis xyz="0 1 0"/>
       <limit effort="0" velocity="0.0" lower="-3" upper="3" />
-      <dynamics damping="100.0" friction="100000.0"/>
-      <dampingFactor>0.1</dampingFactor>
+      <dynamics damping="100.0" friction="1000000.0"/>
     </joint>
     <link name="kinect_yr_joint_link">
       <collision>
@@ -118,7 +116,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
       <limit effort="0.00" velocity="0.00" lower="-3" upper="3" />
-      <dynamics damping="0.01" friction="10000.0"/>
+      <dynamics damping="1" friction="1000000.0"/>
 
     </joint>
     <link name="kinect_zr_joint_link">
@@ -138,13 +136,17 @@
     </link>
 
     <joint name="camera_rgb_joint" type="continuous">
-      <origin xyz="${cam_px} ${kinect_cam_py} ${cam_pz}" rpy="${cam_or} ${cam_op} ${cam_oy}"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <parent link="kinect_zr_joint_link"/>
       <child link="camera_rgb_frame" />
       <axis xyz="0 0 1"/>
-      <dynamics damping="0.01" friction="10000.0"/>
+      <dynamics damping="1" friction="100000.0"/>
     </joint>
     <link name="camera_rgb_frame"/>
+    
+    <gazebo reference="camera_rgb_frame">
+      <gravity>0</gravity>
+  </gazebo>
 
     <joint name="camera_rgb_optical_joint" type="fixed">
       <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
